@@ -16,6 +16,9 @@
 <script>
     export default {
         name: "HomeIcons",
+        props:{
+            list: Array
+        },
         data(){
             return {
                 iconList:[
@@ -69,14 +72,16 @@
         },
         computed: {
             pages () {
-                const pages = []
-                this.iconList.forEach((item, index) => {
+                const pages = [];
+                if(this.list.length){
+                    this.list.forEach((item, index) => {
                     const page = Math.floor(index / 8)
                     if(!pages[page]){
                         pages[page] = []
                     }
                     pages[page].push(item)
                 })
+                }
                 return pages
             }
         }

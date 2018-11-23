@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "ajv": "^6.5.5",
+    "axios": "^0.18.0",
     "fastclick": "^1.0.6",
     "pdfjs-dist": "^2.0.943",
     "vue": "^2.5.17",
