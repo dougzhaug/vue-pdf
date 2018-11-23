@@ -3,6 +3,8 @@ node_modules
 /dist
 public/static/mock
 
+package-lock.json
+
 # local env files
 .env.local
 .env.*.local
