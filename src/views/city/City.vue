@@ -2,8 +2,18 @@
    <div>
       <CityHeader></CityHeader>
       <CitySearch></CitySearch>
-      <CityList :city="city" :hotCities="hotCities" :cities="cities"></CityList>
-      <CityAlphabet :alphabet="alphabet"></CityAlphabet>
+      <CityList
+              :city="city"
+              :hotCities="hotCities"
+              :cities="cities"
+              :letter="letter"
+      >
+      </CityList>
+      <CityAlphabet
+              :letters="letters"
+              @change="handleLetterChangeClick"
+      >
+      </CityAlphabet>
    </div>
 </template>
 
@@ -20,8 +30,9 @@
             return {
                 city:'',
                 hotCities: [],
-                cities: [],
-                alphabet: []
+                cities: {},
+                letters: [],
+                letter: ''
             }
         },
         components:{
@@ -41,8 +52,11 @@
                     this.city = data.city;
                     this.hotCities = data.hotCities;
                     this.cities = data.cities;
-                    this.alphabet = Object.keys(data.cities);
+                    this.letters = Object.keys(data.cities);
                 }
+            },
+            handleLetterChangeClick(letter){
+                this.letter = letter
             }
         },
         mounted(){
