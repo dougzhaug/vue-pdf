@@ -1,11 +1,14 @@
 <template>
     <div>
         <DetailBanner></DetailBanner>
+        <DetailHeader></DetailHeader>
+        <div class="content"></div>
     </div>
 </template>
 
 <script>
     import DetailBanner from './components/DetailBanner'
+    import DetailHeader from './components/DetailHeader'
     export default {
         name: "Detail",
         data () {
@@ -13,11 +16,13 @@
             }
         },
         components:{
-            DetailBanner
+            DetailBanner,
+            DetailHeader
         }
     }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+    .content
+        height 50rem
 </style>
