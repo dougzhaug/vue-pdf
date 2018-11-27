@@ -53,6 +53,9 @@
         },
         created(){
             this.getDetailInfo()
+        },
+        activated(){
+            this.getDetailInfo()
         }
     }
 </script>
