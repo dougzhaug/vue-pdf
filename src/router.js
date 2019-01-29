@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/home/Home'
+import Pdf from '@/views/Pdf'
 import City from '@/views/city/City'
 import Detail from '@/views/detail/Detail'
 
@@ -32,7 +33,12 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+    },
+      {
+          path: '/pdf',
+          name: 'pdf',
+          component: Pdf
+      }
   ],
   scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }

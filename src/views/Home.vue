@@ -20,7 +20,7 @@ export default {
     data(){
         return {
             // 所查看的pdf url
-            pdfurls: 'http://localhost:8080/01.pdf',
+            pdfurls: 'http://192.168.5.241:8080/01.pdf',
             // 缩放 默认为1
             scale: 1,
         }
