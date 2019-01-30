@@ -70,8 +70,6 @@
                 me.pdfDoc.getPage(num).then(function (page) {
                     let viewport = page.getViewport(me.scale);
                     canvas.height = viewport.height;
-                    // console.log(canvas.height);
-                    // me.heightValue += canvas.height*0.66;
                     canvas.width = viewport.width;
                     // 将pdf渲染到canvas中
                     let renderContext = {
@@ -86,19 +84,19 @@
 </script>
 
 <style>
-    #cvsWraper {
-        /*overflow: hidden;*/
-        /*position: absolute;*/
-        /*position:fixed;*/
+    .pure-pdf{
+        overflow: hidden;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+    }
+    #cvsWraper {
         width: 100%;
         margin: 0 auto;
         position: relative;
         overflow-y: scroll;
-        /*height:auto;*/
         border: 1px solid #ccc;
     }
     .canvas-item {
