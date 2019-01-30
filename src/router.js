@@ -4,6 +4,7 @@ import Home from '@/views/home/Home'
 import Pdf from '@/views/Pdf'
 import City from '@/views/city/City'
 import Detail from '@/views/detail/Detail'
+import Reader from '@/views/reader/Reader'
 
 Vue.use(Router)
 
@@ -38,7 +39,13 @@ export default new Router({
           path: '/pdf',
           name: 'pdf',
           component: Pdf
+      },
+      {
+          path: '/reader',
+          name: 'reader',
+          component: Reader
       }
+
   ],
   scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }

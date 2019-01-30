@@ -1,5 +1,5 @@
 <template>
-    <div class="pure-pdf">
+    <div class="pure-pdf" ref="wrapper" >
         <div id="cvsWraper">
             <div class="loading-pdf" v-if="isloading">{{loadingTxt}}</div>
         </div>
@@ -8,6 +8,7 @@
 
 <script>
     import PDFJS from 'pdfjs-dist';
+    import Bscroll from 'better-scroll';
     export default {
         name: 'PurePdf',
         props: {
@@ -35,6 +36,7 @@
             PDFJS.getDocument(me.pdfurl).then(function (pafObj) {
                 me.isloading = true;
                 me.pdfDoc = pafObj;
+                console.log(pafObj);
                 let totalNum = me.pdfDoc.numPages;
                 // 循环渲染所有canvas
                 for (let i = 1; i <= totalNum; i++) {
@@ -48,10 +50,13 @@
                         me.isloading = false;
                     }
                 }
+
+                me.scroll = new Bscroll(me.$refs.wrapper)
             }).catch(function (err) {
                 me.loadingTxt = '加载失败，请稍后重试';
                 me.$emit('onErr', err);
             });
+
         },
         methods: {
             // 渲染页面
@@ -65,6 +70,8 @@
                 me.pdfDoc.getPage(num).then(function (page) {
                     let viewport = page.getViewport(me.scale);
                     canvas.height = viewport.height;
+                    // console.log(canvas.height);
+                    // me.heightValue += canvas.height*0.66;
                     canvas.width = viewport.width;
                     // 将pdf渲染到canvas中
                     let renderContext = {
@@ -80,11 +87,18 @@
 
 <style>
     #cvsWraper {
+        /*overflow: hidden;*/
+        /*position: absolute;*/
+        /*position:fixed;*/
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
         margin: 0 auto;
         position: relative;
         overflow-y: scroll;
-        height: 700px;
+        /*height:auto;*/
         border: 1px solid #ccc;
     }
     .canvas-item {
