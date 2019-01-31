@@ -1,16 +1,24 @@
 <template>
-
-        <ReaderPdf></ReaderPdf>
-
+    <div>
+        <component :is="ReaderCategory"></component>
+    </div>
 </template>
 
 <script>
     import ReaderPdf from './components/ReaderPdf'
+    import ReaderImage from './components/ReaderImage'
     export default {
         name: "Reader",
         components:{
-            ReaderPdf
+            ReaderPdf,
+            ReaderImage
+        },
+        data(){
+            return {
+                ReaderCategory:'ReaderImage'
+            }
         }
+
     }
 </script>
 

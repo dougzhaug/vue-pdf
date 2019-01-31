@@ -1,14 +1,14 @@
 <template>
-    <div class="pure-pdf" ref="wrapper" >
-        <div id="cvsWraper">
+    <BSReader>
+        <div id="pdfWrapper">
             <div class="loading-pdf" v-if="isloading">{{loadingTxt}}</div>
         </div>
-    </div>
+    </BSReader>
 </template>
 
 <script>
     import PDFJS from 'pdfjs-dist';
-    import Bscroll from 'better-scroll';
+    import BSReader from '@/components/betterScroll/BSReader';
     export default {
         name: 'PurePdf',
         props: {
@@ -18,6 +18,9 @@
             scale: {
                 default: 1,
             },
+        },
+        components:{
+            BSReader
         },
         data() {
             return {
@@ -31,12 +34,11 @@
         },
         mounted() {
             const me = this;
-            const cvsWraper = document.getElementById('cvsWraper');
+            const cvsWraper = document.getElementById('pdfWrapper');
             // 异步加载pdf
             PDFJS.getDocument(me.pdfurl).then(function (pafObj) {
                 me.isloading = true;
                 me.pdfDoc = pafObj;
-                console.log(pafObj);
                 let totalNum = me.pdfDoc.numPages;
                 // 循环渲染所有canvas
                 for (let i = 1; i <= totalNum; i++) {
@@ -50,8 +52,6 @@
                         me.isloading = false;
                     }
                 }
-
-                me.scroll = new Bscroll(me.$refs.wrapper)
             }).catch(function (err) {
                 me.loadingTxt = '加载失败，请稍后重试';
                 me.$emit('onErr', err);
@@ -78,26 +78,17 @@
                     };
                     page.render(renderContext);
                 });
-            }
+            },
         },
     }
 </script>
 
 <style>
-    .pure-pdf{
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-    #cvsWraper {
+    #pdfWrapper {
         width: 100%;
         margin: 0 auto;
         position: relative;
         overflow-y: scroll;
-        border: 1px solid #ccc;
     }
     .canvas-item {
         margin: 0 auto;
