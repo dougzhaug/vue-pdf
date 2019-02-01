@@ -14,8 +14,7 @@
             readerClick:function () {
                 console.log(this.scroll.y);
                 if(event._constructed){ //判断是否为better-scroll的点击事件
-                    // this.scroll.next(500)
-                    // this.scroll.scrollTo(0,-3001,500)
+                    // this.scroll.scrollTo(0,-3001,500)        //跳转到指定位置
                 }
             }
         },

@@ -9,7 +9,6 @@
 </template>
 
 <script>
-    import Bscroll from 'better-scroll'
     import PurePdf from '@/components/pdf/PurePdf.vue'
     export default {
         name: "ReaderPdf",
@@ -23,10 +22,6 @@
         },
         components: {
             PurePdf
-        },
-        mounted(){
-            // console.log(this.$refs.wrapper);
-            // this.scroll = new Bscroll(this.$refs.wrapper)
         },
         methods: {
             // 加载失败的callback
