@@ -15,13 +15,11 @@
 <script>
     import BSReader from '@/components/betterScroll/BSReader';
     import CommonGallery from '@/components/gallery/Gallery';
-    import FadeAnimation from '@/components/fade/FadeAnimation';
     export default {
         name: "ScrollImage",
         components:{
             BSReader,
-            CommonGallery,
-            FadeAnimation
+            CommonGallery
         },
         data(){
             return {
