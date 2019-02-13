@@ -5,6 +5,7 @@ import Pdf from '@/views/Pdf'
 import City from '@/views/city/City'
 import Detail from '@/views/detail/Detail'
 import Reader from '@/views/reader/Reader'
+import Login from '@/views/Login'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
           path: '/reader',
           name: 'reader',
           component: Reader
+      },
+      {
+          path: '/login',
+          name: 'login',
+          component: Login
       }
 
   ],

@@ -4,5 +4,9 @@ export default {
         try {
             localStorage.city = city;
         } catch (e) {}
+    },
+    //设置token
+    setToken(state,token){
+        state.token = token;
     }
 }
