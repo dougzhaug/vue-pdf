@@ -76,11 +76,10 @@
         .item-img-wrapper
             overflow hidden
             height 0
-            padding-bottom 37.09%
+            padding-bottom 63.09%
             .item-img
                 width 100%
-            //    !*height 1.7rem*!
-            //    !*padding .1rem*!*/
+                border-radius 0.1rem
         .item-info
             padding .1rem
             .item-title
@@ -89,6 +88,6 @@
                 ellipsis()
             .item-desc
                 line-height .4rem
-                color #ccc
+                color #9d9d9d
                 ellipsis()
 </style>

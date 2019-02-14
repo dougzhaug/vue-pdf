@@ -5,13 +5,15 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex'
     export default {
         name: "Login",
         methods:{
+            ...mapMutations(['setToken']),
             Login:function (result) {
                 if(result){
                     this.setToken(result.data);
-                    this.$router.push('/')
+                    this.$router.push('/reader')
                 }
             },
             getAuthUrl:function (result) {
@@ -21,9 +23,9 @@
         mounted:function () {
             let code = this.$route.query.code;
             if(code){
-                this.axios.get('/login?code='+code).then(this.Login).catch()
+                this.axios.get('http://api.loveliyuan.com/login?code='+code).then(this.Login).catch()
             }else{
-                this.axios.get('/get_authorized_url').then(this.getAuthUrl).catch()
+                this.axios.get('http://api.loveliyuan.com/get_authorized_url').then(this.getAuthUrl).catch()
             }
         }
     }

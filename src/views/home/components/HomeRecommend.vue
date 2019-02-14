@@ -1,15 +1,18 @@
 <template>
     <div>
         <div class="title">热门推荐</div>
-        <ul>
+        <ul class="ul">
             <router-link tag="li" class="item border-bottom" v-for="item of list" :key="item.id" :to="'/detail/'+item.id">
                 <div class="item-img-wrapper">
                     <img class="item-img" :src="item.imgUrl" alt="">
-                </div>
-                <div class="item-info">
-                    <p class="item-title">{{item.title}}</p>
-                    <p class="item-desc">{{item.desc}}</p>
-                    <button class="item-button">查看详情</button>
+                    <div class="item-text">
+                        <div class="item-title">{{item.title}}</div>
+                        <div class="item-content">
+                            <span>喀拉拉</span>
+                            <span>奇幻</span>
+                            <span>冒险</span>
+                        </div>
+                    </div>
                 </div>
             </router-link>
         </ul>
@@ -74,31 +77,28 @@
         line-height .8rem
         background #f5f5f5
         text-indent .2rem
-    .item
-        overflow hidden
+    .ul
         display flex
-        height 1.9rem
-        /*background #eee*/
-        .item-img
-            width 1.7rem
-            height 1.7rem
-            padding .1rem
-        .item-info
-            flex 1
-            padding .1rem
-            min-width 0
+        flex-wrap wrap
+        .item
+            padding .15rem 0 .15rem .15rem
+            .item-img
+                width 2.3rem
+                height 3.55rem
+                border-radius 0.09rem
+            .item-text
+                margin-top .1rem
+                width 2.3rem
+                /*padding 0 0 .15rem .15rem*/
+                color #4f4f4f
             .item-title
-                line-height .54rem
-                font-size .32rem
+                font-size 14px
+            .item-content
+                color #9d9d9d
+                font-size 12px
+                margin-top .1rem
                 ellipsis()
-            .item-desc
-                line-height .4rem
-                color #ccc
-                ellipsis()
-            .item-button
-                line-height .44rem
-                margin-top 0.16rem
-                padding 0 .1rem
-                color #fff
-                background #ff9300
+                span
+                    margin-right 0.1rem
+
 </style>

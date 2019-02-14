@@ -5,12 +5,12 @@
        </div>
        <div class="header-input">
            <i class="iconfont">&#xe632;</i>
-           输入城市/景点/游玩主题
+           输入感兴趣的
        </div>
        <router-link to="/city">
            <div class="header-right">
-               {{this.city}}
-               <i class="iconfont arrow-icon">&#xe62d;</i>
+               <!--{{this.city}}-->
+               <!--<i class="iconfont arrow-icon">&#xe62d;</i>-->
            </div>
        </router-link>
 
@@ -51,7 +51,7 @@
             border-radius .08rem
             color #ccc
         .header-right
-            min-width 1.04rem
+            min-width .4rem
             padding 0 .1rem
             float right
             text-align center

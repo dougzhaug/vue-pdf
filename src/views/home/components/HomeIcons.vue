@@ -75,7 +75,7 @@
                 const pages = [];
                 if(this.list.length){
                     this.list.forEach((item, index) => {
-                    const page = Math.floor(index / 8)
+                    const page = Math.floor(index / 4)
                     if(!pages[page]){
                         pages[page] = []
                     }
@@ -93,7 +93,7 @@
    @import "~@/assets/css/mixins.styl";
       .icons >>> .swiper-container
           height 0
-          padding-bottom 50%
+          padding-bottom 25%
    .icons
        margin-top .1rem
    .icon

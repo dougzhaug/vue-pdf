@@ -8,5 +8,8 @@ export default {
     //设置token
     setToken(state,token){
         state.token = token;
+        try {
+            localStorage.token = token;
+        } catch (e) {}
     }
 }
