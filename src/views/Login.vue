@@ -10,13 +10,13 @@
         name: "Login",
         methods:{
             ...mapMutations(['setToken']),
-            Login:function (result) {
+            Login(result) {
                 if(result){
                     this.setToken(result.data);
                     this.$router.push('/reader')
                 }
             },
-            getAuthUrl:function (result) {
+            getAuthUrl(result) {
                 window.location.href = result.data;
             }
         },

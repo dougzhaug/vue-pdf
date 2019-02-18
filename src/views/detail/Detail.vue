@@ -6,8 +6,10 @@
                 :bannerImgs="bannerImgs"
         ></DetailBanner>
         <DetailHeader></DetailHeader>
-        <DetailList :list="list"></DetailList>
-        <div class="content"></div>
+        <DetailTab></DetailTab>
+
+        <component :is="detailTab"></component>
+
     </div>
 </template>
 
@@ -15,7 +17,10 @@
     import DetailBanner from './components/DetailBanner'
     import DetailHeader from './components/DetailHeader'
     import DetailList from './components/DetailList'
+    import DetailTab from './components/DetailTab'
+    import DetailCatalog from './components/DetailCatalog'
     import axios from 'axios'
+    import { mapState } from 'vuex'
     export default {
         name: "Detail",
         data () {
@@ -29,7 +34,12 @@
         components:{
             DetailBanner,
             DetailHeader,
-            DetailList
+            DetailList,
+            DetailTab,
+            DetailCatalog,
+        },
+        computed:{
+            ...mapState(['detailTab'])
         },
         methods:{
             getDetailInfo(){
@@ -60,7 +70,7 @@
     }
 </script>
 
-<style lang="stylus" scoped>
-    .content
-        height 50rem
+<style scoped>
+
+
 </style>

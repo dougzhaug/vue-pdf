@@ -11,5 +11,10 @@ export default {
         try {
             localStorage.token = token;
         } catch (e) {}
+    },
+
+    /***详情页***/
+    setDetailTab(state,tab){
+        state.detailTab = tab;
     }
 }

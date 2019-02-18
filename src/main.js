@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
     // to: Route: 即将要进入的目标 路由对象
     // from: Route: 当前导航正要离开的路由
     // next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。
-    const exceptRoute = ['login','home'];  //无需验证登录的路由
+    const exceptRoute = ['login','home','detail'];  //无需验证登录的路由
     let token = store.state.token;  // 是否登录
     if (exceptRoute.indexOf(to.name) < 0) {
         if (!token) {

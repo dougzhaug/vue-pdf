@@ -53,14 +53,14 @@
     @import "~@/assets/css/varibles.styl"
     .header-abs
         position absolute
-        top .2rem
-        left .2rem
+        top 0rem
+        left 0rem
         height .8rem
         width .8rem
         border-radius .4rem
         line-height .8rem
         text-align center
-        background rgba(0,0,0,.8)
+        background rgba(0,0,0,0)
         color #fff
         .header-ads-back-icon
             font-size .4rem

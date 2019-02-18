@@ -3,7 +3,9 @@
         <HomeHeader></HomeHeader>
         <HomeSwiper :list="swiperList"></HomeSwiper>
         <HomeIcons :list="iconList"></HomeIcons>
-        <HomeRecommend :list="recommendList"></HomeRecommend>
+        <Grid :list="recommendList" ></Grid>
+        <Grid :list="recommendList" title="热门" ></Grid>
+        <Waterfall :list="weekendList" title="快乐周末" ></Waterfall>
         <HomeWeekend :list="weekendList"></HomeWeekend>
     </div>
 </template>
@@ -13,6 +15,8 @@
     import HomeSwiper from './components/HomeSwiper'
     import HomeIcons from './components/HomeIcons'
     import HomeRecommend from './components/HomeRecommend'
+    import Grid from '@/components/list/Grid'
+    import Waterfall from '@/components/list/Waterfall'
     import HomeWeekend from './components/HomeWeekend'
     import axios from 'axios'
     import { mapState } from 'vuex'
@@ -23,7 +27,9 @@
             HomeSwiper,
             HomeIcons,
             HomeRecommend,
-            HomeWeekend
+            HomeWeekend,
+            Grid,
+            Waterfall
         },
         data(){
             return {

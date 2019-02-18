@@ -62,7 +62,7 @@
         position relative
         overflow hidden
         height 0
-        padding-bottom 55%
+        padding-bottom 63%
         .banner-img
             width 100%
         .banner-info

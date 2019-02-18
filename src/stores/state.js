@@ -10,6 +10,11 @@ try {
 } catch (e) {}
 
 export default {
-    city: defaultCity,
-    token:defaultToken
+    city: defaultCity,      //城市
+    token:defaultToken,      //后台返回的登录token
+
+    /**
+     * 详情页
+     */
+    detailTab: 'DetailList',
 }
