@@ -9,7 +9,7 @@
         <DetailTab></DetailTab>
 
         <component :is="detailTab"></component>
-
+        <TabBar></TabBar>
     </div>
 </template>
 
@@ -19,6 +19,7 @@
     import DetailList from './components/DetailList'
     import DetailTab from './components/DetailTab'
     import DetailCatalog from './components/DetailCatalog'
+    import TabBar from '@/components/tabBar/TabBar'
     import axios from 'axios'
     import { mapState } from 'vuex'
     export default {
@@ -37,6 +38,7 @@
             DetailList,
             DetailTab,
             DetailCatalog,
+            TabBar
         },
         computed:{
             ...mapState(['detailTab'])
