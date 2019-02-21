@@ -1,7 +1,7 @@
 <template>
     <div class="tabberWarp" >
         <div class="warp">
-            <Item :txt='item.txt' :page='item.page' @change='getVal' v-for='item in tabbarDes':sel='selected'>
+            <Item :txt='item.txt' :page='item.page' @change='getVal' v-for='item in list':sel='selected'>
 
                 <img :src="item.normalImg" slot='normalImg'>
                 <img :src="item.activeImg" slot='activeImg'>
@@ -14,12 +14,17 @@
     import Item from './Item.vue'
     export default {
         name: "TabBar",
-        components:{
-            Item
+        props:{
+            list: Array,
+            selected:{
+                type: String,
+                default () {
+                    return 'skin'
+                }
+            },
         },
         data:function(){
             return{
-                selected:'skin',
                 tabbarDes:[
                     {
                         txt:'表情',
@@ -42,6 +47,9 @@
                     }
                 ]
             }
+        },
+        components:{
+            Item
         },
         methods:{
             getVal:function(res){

@@ -3,10 +3,11 @@
         <HomeHeader></HomeHeader>
         <HomeSwiper :list="swiperList"></HomeSwiper>
         <HomeIcons :list="iconList"></HomeIcons>
-        <Grid :list="recommendList" ></Grid>
-        <Grid :list="recommendList" title="热门" ></Grid>
-        <Waterfall :list="weekendList" title="快乐周末" ></Waterfall>
-        <HomeWeekend :list="weekendList"></HomeWeekend>
+        <Grid :list="hotList" title="热门推荐"></Grid>
+        <Grid :list="weekList" title="本周头版"></Grid>
+        <Grid :list="newList" title="新作主打" ></Grid>
+        <Waterfall :list="waterfallList" title="更多" ></Waterfall>
+        <TabBar :list="tabList"></TabBar>
     </div>
 </template>
 
@@ -14,31 +15,57 @@
     import HomeHeader from './components/HomeHeader'
     import HomeSwiper from './components/HomeSwiper'
     import HomeIcons from './components/HomeIcons'
-    import HomeRecommend from './components/HomeRecommend'
     import Grid from '@/components/list/Grid'
     import Waterfall from '@/components/list/Waterfall'
-    import HomeWeekend from './components/HomeWeekend'
+    import TabBar from '@/components/tabBar/TabBar'
     import axios from 'axios'
     import { mapState } from 'vuex'
+    import { getHomeAD, getHomeIcon, getHomeHot, getHomeWeek, getHomeNew, getHomeWaterfall } from './api'
     export default {
         name: "Home",
         components: {
             HomeHeader,
             HomeSwiper,
             HomeIcons,
-            HomeRecommend,
-            HomeWeekend,
             Grid,
-            Waterfall
+            Waterfall,
+            TabBar
         },
         data(){
             return {
-                lastCity: '',
                 swiperList: [],
                 iconList:[],
-                recommendList:[],
-                weekendList:[]
+                hotList:[],
+                weekList:[],
+                newList:[],
+                waterfallList:[],
+                tabList:[
+                    {
+                        txt:'表情',
+                        page:'skin',
+                        normalImg:require('@/assets/logo.jpeg'),
+                        activeImg:require('@/assets/logo.jpeg')
 
+                    },
+                    {
+                        txt:'皮肤',
+                        page:'phiz',
+                        normalImg:require('@/assets/logo.jpeg'),
+                        activeImg:require('@/assets/logo.jpeg')
+                    },
+                    {
+                        txt:'词库',
+                        page:'thesaurus',
+                        normalImg:require('@/assets/logo.jpeg'),
+                        activeImg:require('@/assets/logo.jpeg')
+                    },
+                    {
+                        txt:'皮肤',
+                        page:'phiz',
+                        normalImg:require('@/assets/logo.jpeg'),
+                        activeImg:require('@/assets/logo.jpeg')
+                    }
+                ]
             }
         },
         computed:{
@@ -46,7 +73,7 @@
         },
         methods:{
             getHomeInfo(){
-                this.lastCity = this.city;
+                //this.lastCity = this.city;
                 axios.get('/api/index.json?city=' + this.city).then(this.getHomeInfoSucc)
             },
             getHomeInfoSucc(res){
@@ -55,19 +82,33 @@
                     const data = res.data;
                     this.swiperList = data.swiperList;
                     this.iconList = data.iconList;
-                    this.recommendList = data.recommendList;
-                    this.weekendList = data.weekendList;
+                    this.newList = data.recommendList;
+                    this.waterfallList = data.weekendList;
                 }
             }
         },
         mounted(){
-            this.getHomeInfo()
+            this.getHomeInfo();
+            getHomeAD().then((result)=>{
+                this.swiperList = result.data;
+            });
+            getHomeIcon().then((result)=>{
+                this.iconList = result.data;
+            });
+            getHomeHot().then((result)=>{
+                this.hotList = result.data;
+            });
+            getHomeWeek().then((result)=>{
+                this.weekList = result.data;
+            });
+            getHomeNew().then((result)=>{
+                this.newList = result.data;
+            });
+            getHomeWaterfall().then((result)=>{
+                this.waterfallList = result.data;
+            });
         },
-        activated(){
-            if(this.lastCity !== this.city){
-                this.getHomeInfo()
-            }
-        }
+        activated(){}
     }
 </script>
 

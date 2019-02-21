@@ -3,18 +3,19 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import fastClick from 'fastclick'
-import axios from 'axios'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import './assets/css/reset.css'
 import './assets/css/border.css'
 import './assets/css/iconfont/iconfont.css'
 import 'swiper/dist/css/swiper.css'
 
-Vue.config.productionTip = false
-fastClick.attach(document.body)
-Vue.use(VueAwesomeSwiper)
-Vue.prototype.axios = axios
+Vue.config.productionTip = false;
+fastClick.attach(document.body);
+Vue.use(VueAwesomeSwiper);
 
+/**
+ * 判断登录路由钩子
+ */
 router.beforeEach((to, from, next) => {
     console.log(store.state.token)
     // to: Route: 即将要进入的目标 路由对象
@@ -42,9 +43,4 @@ new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
-
-/**
- * 判断登录路由钩子
- */
-
+}).$mount('#app');
