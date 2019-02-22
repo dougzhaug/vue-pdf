@@ -18,7 +18,7 @@ service.interceptors.request.use(config => {
     config.method === 'post'
         ? config.data = qs.stringify({...config.data})
         : config.params = {...config.params};
-    config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+    // config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
     config.headers['Authorization'] = localStorage.token ? localStorage.token : '';
 
     return config;
@@ -36,23 +36,25 @@ service.interceptors.response.use(
     response => {  //成功请求到数据
         // app.$vux.loading.hide();
         //这里根据后端提供的数据进行对应的处理
-        if (response.data.result === 'TRUE') {
-            return response.data;
-        } else {
-            // app.$vux.toast.show({  //常规错误处理
-            //     type: 'warn',
-            //     text: response.data.data.msg
-            // });
-        }
+        // console.log(response.data);
+        return response.data;
     },
     error => {  //响应错误处理
-        console.log('error');
-        console.log(error);
-        console.log(JSON.stringify(error));
-        console.log(JSON.parse(JSON.stringify(error)).response.statusText);
-        let text = JSON.parse(JSON.stringify(error)).response.status === 404
+        // console.log('error');
+        // console.log(error);
+        // console.log(JSON.stringify(error));
+        console.log(JSON.parse(JSON.stringify(error)).response);
+
+        let response = JSON.parse(JSON.stringify(error)).response;
+        let text = response.status === 404
             ? '404'
             : '网络异常，请重试';
+        if(!response.data.status_code){
+            alert('网络异常')
+        }else{
+            alert(response.data.message);
+        }
+        // console.log(response.data.status_code);
         // app.$vux.toast.show({
         //     type: 'warn',
         //     text: text

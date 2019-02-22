@@ -88,25 +88,25 @@
             }
         },
         mounted(){
-            this.getHomeInfo();
+            // this.getHomeInfo();
             getHomeAD().then((result)=>{
-                this.swiperList = result.data;
+                this.swiperList = result;
             });
             getHomeIcon().then((result)=>{
-                this.iconList = result.data;
+                this.iconList = result;
             });
-            getHomeHot().then((result)=>{
-                this.hotList = result.data;
-            });
-            getHomeWeek().then((result)=>{
-                this.weekList = result.data;
-            });
-            getHomeNew().then((result)=>{
-                this.newList = result.data;
-            });
-            getHomeWaterfall().then((result)=>{
-                this.waterfallList = result.data;
-            });
+            // getHomeHot().then((result)=>{
+            //     this.hotList = result.data;
+            // });
+            // getHomeWeek().then((result)=>{
+            //     this.weekList = result.data;
+            // });
+            // getHomeNew().then((result)=>{
+            //     this.newList = result.data;
+            // });
+            // getHomeWaterfall().then((result)=>{
+            //     this.waterfallList = result.data;
+            // });
         },
         activated(){}
     }
