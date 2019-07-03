@@ -15,7 +15,7 @@
         data(){
             return {
                 // 所查看的pdf url
-                pdfurls: 'http://qiniu.loveliyuan.com/28.pdf',
+                pdfurls: 'http://qiniu.loveliyuan.com/02.pdf',
                 // 缩放 默认为1
                 scale: 1
             }
@@ -33,5 +33,5 @@
     }
 </script>
 
-<style lang="stylus" scoped>
+<style scoped>
 </style>

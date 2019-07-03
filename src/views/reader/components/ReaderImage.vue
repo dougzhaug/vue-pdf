@@ -1,5 +1,7 @@
 <template>
-    <ScrollImage></ScrollImage>
+    <div class="body">
+        <ScrollImage></ScrollImage>
+    </div>
 </template>
 
 <script>
@@ -13,5 +15,7 @@
 </script>
 
 <style scoped>
-
+.bs-reader{
+    margin-top: 50px!important;
+}
 </style>

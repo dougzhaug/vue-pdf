@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/home/Home'
-import Pdf from '@/views/Pdf'
-import City from '@/views/city/City'
-import Detail from '@/views/detail/Detail'
-import Reader from '@/views/reader/Reader'
-import Login from '@/views/Login'
+import Home from '@/views/home/Home';
+import Pdf from '@/views/Pdf';
+import City from '@/views/city/City';
+import Detail from '@/views/detail/Detail';
+import Reader from '@/views/reader/Reader';
+import Login from '@/views/login/Login';
+import Index from '@/views/index/Index';
 
 Vue.use(Router)
 
@@ -14,9 +15,9 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/index',
+      name: 'index',
+      component: Index
     },
     {
         path: '/city',
@@ -50,7 +51,7 @@ export default new Router({
           path: '/login',
           name: 'login',
           component: Login
-      }
+      },
 
   ],
   scrollBehavior (to, from, savedPosition) {
