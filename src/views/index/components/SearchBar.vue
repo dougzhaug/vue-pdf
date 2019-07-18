@@ -14,28 +14,28 @@
             </form>
             <a href="javascript:" class="weui-search-bar__cancel-btn" :hidden="searchCancel" id="search_cancel">取消</a>
         </div>
-        <div class="weui-cells weui-cells_access search_show" id="search_show">
-            <div class="weui-cell">
-                <div class="weui-cell__bd weui-cell_primary">
-                    <p>实时搜索文本</p>
-                </div>
-            </div>
-            <div class="weui-cell">
-                <div class="weui-cell__bd weui-cell_primary">
-                    <p>实时搜索文本</p>
-                </div>
-            </div>
-            <div class="weui-cell">
-                <div class="weui-cell__bd weui-cell_primary">
-                    <p>实时搜索文本</p>
-                </div>
-            </div>
-            <div class="weui-cell">
-                <div class="weui-cell__bd weui-cell_primary">
-                    <p>实时搜索文本</p>
-                </div>
-            </div>
-        </div>
+<!--        <div class="weui-cells weui-cells_access search_show" id="search_show">-->
+<!--            <div class="weui-cell">-->
+<!--                <div class="weui-cell__bd weui-cell_primary">-->
+<!--                    <p>实时搜索文本</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="weui-cell">-->
+<!--                <div class="weui-cell__bd weui-cell_primary">-->
+<!--                    <p>实时搜索文本</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="weui-cell">-->
+<!--                <div class="weui-cell__bd weui-cell_primary">-->
+<!--                    <p>实时搜索文本</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="weui-cell">-->
+<!--                <div class="weui-cell__bd weui-cell_primary">-->
+<!--                    <p>实时搜索文本</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </template>
 

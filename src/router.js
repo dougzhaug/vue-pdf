@@ -7,6 +7,7 @@ import Detail from '@/views/detail/Detail';
 import Reader from '@/views/reader/Reader';
 import Login from '@/views/login/Login';
 import Index from '@/views/index/Index';
+import Lists from '@/views/index/Lists';
 
 Vue.use(Router)
 
@@ -15,9 +16,14 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/index',
+      path: '/',
       name: 'index',
       component: Index
+    },
+    {
+        path: '/lists',
+        name: 'lists',
+        component: Lists
     },
     {
         path: '/city',
